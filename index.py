@@ -1,9 +1,9 @@
 import bottle
-from bottle import route, run, Response, template
+from bottle import Bottle, route, run, Response, template
 import json
 import image
 
-app = bottle()
+app = Bottle()
 
 def call_service():
     directoryName = 'photos'
