@@ -3,7 +3,7 @@ from bottle import route, run, Response, template
 import json
 import image
 
-app = Bottle()
+app = bottle()
 
 def call_service():
     directoryName = 'photos'
