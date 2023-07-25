@@ -9,7 +9,7 @@ def call_service():
     directoryName = 'photos'
     image.process(directoryName)
 
-@route('/')
+@app.route('/')
 def index():
     """Home page"""
     title = "Image Processor App"
