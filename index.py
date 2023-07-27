@@ -1,6 +1,7 @@
 import bottle
 from bottle import Bottle, route, run, Response, template
 import json
+import image
 
 import cProfile, pstats, io
 from pstats import SortKey
