@@ -1,13 +1,26 @@
 import bottle
 from bottle import Bottle, route, run, Response, template
 import json
-import image
+
+import cProfile, pstats, io
+from pstats import SortKey
 
 app = Bottle()
 
+
 def call_service():
+    pr = cProfile.Profile()
+    pr.enable()
+
     directoryName = 'photos'
     image.process(directoryName)
+    
+    pr.disable()
+    s = io.StringIO()
+    sortby = SortKey.CUMULATIVE
+    ps = pstats.Stats(pr, stream=s).sort_stats(sortby)
+    ps.print_stats()
+    print(s.getvalue())
 
 @app.route('/')
 def index():
