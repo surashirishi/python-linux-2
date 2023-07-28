@@ -1,12 +1,12 @@
 import bottle
 from bottle import Bottle, route, run, Response, template
 import json
+import image
 
 import cProfile, pstats, io
 from pstats import SortKey
 
 app = Bottle()
-
 
 def call_service():
     pr = cProfile.Profile()
