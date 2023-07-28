@@ -11,11 +11,10 @@ def process(directoryName):
             filenamestr = filename.split('.')[0]
             extension  = filename.split('.')[1]
             img = imread(os.path.join(directoryName, filename))
-            img_new = rgb2gray(img)
             fig = plt.figure() 
             ax1 = fig.add_subplot(221)
-            imshow(img_new)
+            imshow(img)
             plt.title('Grayscale Format') 
-            imsave(os.getcwd() + "/output/" + filenamestr +"-" + helper.generateRandomName() + "_modified.jpeg", (img_new*255).astype(np.uint8))
+            imsave(os.getcwd() + "/output/" + filenamestr +"-" + helper.generateRandomName() + "_modified.jpeg", (img*255).astype(np.uint8))
         else:
             continue
